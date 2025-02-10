@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import CreateUserForm, LoginForm
 from django.contrib.auth import login, logout, authenticate
-from django.contrib import messages
+from django.contrib import messages,auth
 
 def homepage(request):
     return render(request, 'journal/index.html')
@@ -39,6 +39,13 @@ def my_login(request):
 
     context = {'LoginForm': form}
     return render(request, 'journal/login.html', context)
+
+
+def user_logout(request):
+    
+    auth.logout(request)
+    
+    return redirect("")
 
 def dashboard(request):
     return render(request, 'journal/dashboard.html')
