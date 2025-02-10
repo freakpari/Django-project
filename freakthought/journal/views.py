@@ -8,35 +8,33 @@ def homepage(request):
     return render(request, 'journal/index.html')
 
 def register(request):
-    form = CreateUserForm()  # Initialize an empty form
+    form = CreateUserForm() 
 
     if request.method == 'POST':
-        form = CreateUserForm(request.POST)  # Populate the form with POST data
-
-        if form.is_valid():  # This should be inside the POST check
+        form = CreateUserForm(request.POST)  
+        if form.is_valid():  
             form.save()
-            return redirect('my-login')  # Redirect to login after successful registration
+            return redirect('my-login')  
 
     context = {'RegisterationForm': form}
     return render(request, 'journal/register.html', context)
 
 def my_login(request):
-    form = LoginForm()  # Initialize an empty form correctly with parentheses
+    form = LoginForm()  
 
     if request.method == 'POST':
-        form = LoginForm(request, data=request.POST)  # Populate form with POST data
-
-        if form.is_valid():  # Check if the form is valid **inside the POST check**
-            username = form.cleaned_data.get('username')  # Use cleaned_data instead of request.POST
+        form = LoginForm(request, data=request.POST)  
+        if form.is_valid(): 
+            username = form.cleaned_data.get('username')  
             password = form.cleaned_data.get('password')
 
             user = authenticate(request, username=username, password=password)
 
-            if user is not None:  # Ensure this check is **inside** the form validation block
-                login(request, user)  # Use login from django.contrib.auth
-                return redirect('dashboard')  # Redirect to dashboard on success
+            if user is not None:  
+                login(request, user)  
+                return redirect('dashboard') 
             else:
-                messages.error(request, "Invalid username or password")  # Show error message if authentication fails
+                messages.error(request, "Invalid username or password")  
 
     context = {'LoginForm': form}
     return render(request, 'journal/login.html', context)

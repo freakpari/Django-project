@@ -1,10 +1,15 @@
+{% load static %}
 <html>
     <head>
         <title>FreakThought | register </title>
 
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/morph/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static  'css/styles.css' %}">
+
+
     </head>
-    
-<div class="container">  
+<br> 
+<div class="container bg-white shadow-md p-5 form-layout" >  
     <h3>create your account!</h3>
 
     <h5>share your creative thoughts today &#128512; </h5> 
@@ -15,9 +20,10 @@
         {% csrf_token %}
         {{RegisterationForm.as_p}}
 
-    <button type="submit">create account</button> 
-    </form>
+    <button class="btn btn-secondary btn-md w-100 btn-block p-3" type="submit">create account</button> 
+    </form> 
 </div>
+<br>
 </html>    
 
 
