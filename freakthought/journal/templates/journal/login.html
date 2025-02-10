@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <html>
     <head>
         <title>FreakThought | Login </title>
@@ -14,11 +15,12 @@
     <br>
     <form method="post" autocomplete="off">
         {% csrf_token %}
-        {{LoginForm.as_p}}
+        {{LoginForm|crispy}}
 
     <button class="btn btn-secondary btn-md w-100 btn-block p-3" type="submit">Login</button> 
     </form>
 </div>
+<br>
 </html>    
 
 
