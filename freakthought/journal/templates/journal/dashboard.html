@@ -1,3 +1,10 @@
-<h1>dashboard page</h1>
+{% extends 'journal/navbar.html' %}
+{%block content%}
+<br>
+<div class="container bg-white shadow-md p-5 form-layout">  
 
-<a href="{% url 'user-logout' %}"> logout here </a>
+    <h1>dashboard page</h1>
+
+    <a href="{% url 'user-logout' %}"> logout here </a>
+</div>    
+{% endblock %}
