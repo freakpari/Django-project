@@ -1,1 +1,23 @@
-<h1>register page</h1>
+<html>
+    <head>
+        <title>FreakThought | register </title>
+
+    </head>
+    
+<div class="container">  
+    <h3>create your account!</h3>
+
+    <h5>share your creative thoughts today &#128512; </h5> 
+
+    <br>
+    <br>
+    <form method="post" autocomplete="off">
+        {% csrf_token %}
+        {{RegisterationForm.as_p}}
+
+    <button type="submit"> &nbsp; create account</button> 
+    </form>
+</div>
+</html>    
+
+
