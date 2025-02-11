@@ -8,7 +8,8 @@ from .models import Thought
 class ThoughtForm(ModelForm):
     class Meta:
         model = Thought
-        fields = '__all__'  
+        fields = ['title','content',]
+        exclude = ['user',]
 
         
 class CreateUserForm(UserCreationForm):
