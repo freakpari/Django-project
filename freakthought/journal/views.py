@@ -88,17 +88,23 @@ def my_thoughts(request):
 @login_required(login_url = 'my-login' )
 def update_thought(request, pk):
     
-    thought = Thought.objects.get(id=pk)
+    try:
+        thought = Thought.objects.get(id=pk , user = request.user)
+    except:
+        return redirect('my-thoughts')
     
     form = ThoughtForm(instance=thought)
     
     if request.method == 'POST':
+        
         form = ThoughtForm(request.POST,instance=thought)  
         
     if form.is_valid():
+        
         form.save() 
         
-        return redirect('my-thoughts')   
+        return redirect('my-thoughts')  
+    
     context= { 'UpdateThought' : form}
     return render(request, 'journal/update-thought.html',context)
 
