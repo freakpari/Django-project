@@ -22,6 +22,7 @@ urlpatterns = [
     path('delete-thought/<str:pk>',views.delete_thought,name="delete-thought"),
     
     path('profile-management',views.profile_management,name="profile-management"),
-
+    
+    path('delete-account',views.delete_account,name="delete-account"),
 
 ]
