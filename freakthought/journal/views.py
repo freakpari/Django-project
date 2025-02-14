@@ -108,3 +108,17 @@ def update_thought(request, pk):
     context= { 'UpdateThought' : form}
     return render(request, 'journal/update-thought.html',context)
 
+
+@login_required(login_url = 'my-login' )
+def delete_thought(request , pk):
+
+    try:
+        thought = Thought.objects.get(id=pk , user = request.user)
+    except:
+        return redirect('my-thoughts')
+    
+    if request.method == 'POST':
+        thought.delete()
+        return redirect('my-thoughts')
+
+    return render(request, 'journal/delete-thought.html')
