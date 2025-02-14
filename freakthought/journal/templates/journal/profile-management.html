@@ -1,0 +1,25 @@
+{% extends 'journal/navbar.html' %}
+{% load crispy_forms_tags %}
+
+{%block content%}
+<br>
+<div class="container bg-white shadow-md p-5 form-layout">  
+
+    <h3> Update username and email </h3>
+
+    <br>
+    <br>
+    <form method="post" autocomplete="off">
+
+        {% csrf_token %}
+
+        {{ProfileForm|crispy}}
+
+        <br>
+
+    <button class="btn btn-secondary btn-md w-100 btn-block p-3" type="submit">create</button> 
+    </form>
+</div>  
+<br>
+
+{% endblock %}

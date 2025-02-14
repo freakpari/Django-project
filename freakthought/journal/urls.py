@@ -20,5 +20,8 @@ urlpatterns = [
     path('update-thought/<str:pk>',views.update_thought,name="update-thought"),
     
     path('delete-thought/<str:pk>',views.delete_thought,name="delete-thought"),
+    
+    path('profile-management',views.profile_management,name="profile-management"),
+
 
 ]
