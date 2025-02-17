@@ -13,13 +13,33 @@
 
         {% csrf_token %}
 
-        {{ProfileForm|crispy}}
+        {{UserUpdateForm|crispy}}
 
         <br>
 
     <button class="btn btn-secondary btn-md w-100 btn-block p-3" type="submit">create</button> 
     </form>
-</div>  
+</div>
+<br><br>
+
+<div class="container bg-white shadow-md p-5 form-layout">  
+
+    <h3> Update profile </h3>
+
+    <br>
+    <br>
+    <form method="post" autocomplete="off" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        {{ProfileUpdateForm|crispy}}
+
+        <br>
+
+    <button class="btn btn-secondary btn-md w-100 btn-block p-3" type="submit">update profile</button> 
+    </form>
+</div>
+<br>  
 <br>
 <div class="container bg-white shadow-md p-5 form-layout">  
     <h3>Delete your account</h3>
